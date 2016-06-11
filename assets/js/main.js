@@ -22,7 +22,13 @@ $(document).ready(function() {
     pagination : true,
   });//Testimonials slider
 
-  $("#drag-slider").slider({});
+  $("#drag-slider").slider({
+    tooltip:'hide',
+  });
+  $("#drag-slider").on("slide", function(slideEvt) {
+    $(".start-price").text(slideEvt.value[0]);
+    $(".end-price").text(slideEvt.value[1]);
+  });
 
   $('ul.nav li.dropdown').hover(function() {
     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
